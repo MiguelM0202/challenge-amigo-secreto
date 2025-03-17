@@ -92,6 +92,7 @@ body {
     justify-content: center;
 }
 
+
 /* Estilos de entrada de texto */
 .input-title {
     flex: 1;
@@ -125,6 +126,10 @@ button {
     background-color: #a1a1a1;
 }
 
+.button-add:disabled {
+    background-color: #898989;
+}
+
 /* Listas */
 ul {
     list-style-type: none;
@@ -132,6 +137,7 @@ ul {
     font-family: "Inter", sans-serif;
     font-size: 18px;
     margin: 20px 0;
+    text-align: center;
 }
 
 .result-list {
@@ -151,6 +157,10 @@ ul {
     color: var(--color-white);
     background-color: var(--color-button);
     font-size: 16px;
+}
+
+.button-draw:disabled {
+    background-color: var(--color-button-hover);
 }
 
 .button-draw img {
