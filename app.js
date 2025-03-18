@@ -1,5 +1,4 @@
 let amigoSorteado = 0;
-let amigosIngresados = 0;
 let listaDeAmigosIngresados = [];
 let listaNumerosGenerados = [];
 let numeroMaximoDeAmigos = 3;
@@ -9,7 +8,7 @@ let botonSorteo = document.querySelector("#sortearAmigo");
 function asignarTextoElemento(elemento,texto) {
     let elementoHTML = document.querySelector(elemento);
     for (let i = 0; i < numeroMaximoDeAmigos; i++) {
-       if (amigosIngresados === numeroMaximoDeAmigos){
+       if (listaDeAmigosIngresados.length === numeroMaximoDeAmigos){
             let desactivar = document.querySelector("#desactivar");
             desactivar.innerHTML= `<b> Ingresaste el numero maximo de amigos (${numeroMaximoDeAmigos})</b> <br> ¡Es hora del sorteo! <br><br> ${texto}`;
             document.querySelector("#Añadir").setAttribute("disabled", "true");
@@ -50,7 +49,7 @@ function generarNumero() {
 function nombreSorteado(){
     let resultado = (document.getElementById("resultado1"));
     //Mostrar el resultado: Actualizar el contenido del elemento de resultado utilizando document.getElementById()  e innerHTML para mostrar el amigo sorteado.
-    if (listaDeAmigosIngresados.length == numeroMaximoDeAmigos){
+    if (listaDeAmigosIngresados.length === numeroMaximoDeAmigos){
         resultado.innerHTML=`El amigo secreto sorteado es: ${listaDeAmigosIngresados[amigoSorteado]}`;
         let remove = document.querySelector("#listaAmigos")
         remove.remove();
@@ -93,7 +92,6 @@ function agregarAmigo() {
             sortearAmigo();
 
             limpiarCaja();
-            amigosIngresados++
             botonSorteo.removeAttribute("disabled");
             return;
         }
@@ -107,11 +105,3 @@ function limpiarCaja() {
     document.querySelector('#amigo').value = '';
     document.querySelector("#amigo").focus();
 }
-
-function condicionInicial(){
-    amigoSorteado = generarNumero();
-    amigosIngresados = 1;
-
-}
-
-condicionInicial();
